@@ -1,1 +1,175 @@
+// variables in js
 
+// let
+let name="bhupesh";
+console.log(name);
+let age=20;
+console.log(name,age);
+age=30;
+console.log(age);
+
+// const
+const a=29;
+console.log(a);
+// a=23;
+// console.log(a); -> it gives error as const never change 
+
+// var
+var b=23;
+console.log(b);
+b=45;
+console.log(b);
+            // -> difference is we can redeclared the var
+var b=24;
+console.log(b);
+            // -> it is not repect the scope 
+if(true){
+    var c=23;
+}
+console.log(c);
+
+// note-> var only respect the functional scope and the global scope
+// function add(a,b){
+//      var d=a+b;
+//      return c;
+// }
+// console.log(d);
+
+// ---------------------------- DATA TYPES -----------------------------------
+// 1.PRIMITIVE DATA TYPE
+// number,string,boolean,undefined,null,bigint,symbol
+// 2.NONPRIMITIVE DATA TYPE
+// array,object,function
+
+// number
+let e=1;
+let f=4.56;
+console.log(e,f);
+
+// string
+let g="bkk";
+let h='kkk';
+console.log(g,h);
+
+// boolean
+let login=true;
+let i=false;
+console.log(login,i);
+
+// undefined
+let j;
+console.log(j);// it is undefined as we have not initialize the j
+
+// note -> is this is possible with const
+
+// const k;
+// console.log(k);
+//-> it will give error as with const we have to initialize at time of decleration
+
+// bigint
+// note -> number take 8 byte (64 bits) of memeory
+let k=23456789012345678n;
+console.log(k);
+
+// null
+let weather=null;
+console.log(null); // -> if we have to tell intentially that no value we have to assign then use null
+
+// symbol -> it will craete the unique value
+const id1=Symbol("id");
+const id2=Symbol("id");
+console.log(id1==id2);// these are not same
+
+// array
+let array=["a",'b',1,2,3,4.56,"bkk"];
+console.log(array);
+
+// object -> it is always present in the key values pair and have a meaning
+let user={
+    name:"bkk",
+    class:"mca",
+    age:25
+}
+console.log(user);
+
+// function
+let l=null;
+function sub(a,b){
+    if(a>b){
+        l=a-b;
+    }
+    else if(a<b){
+        l=b-a;
+    }
+    else{
+        l=0;
+    }
+    return l;
+}
+console.log(sub(1,2));
+
+// note -> we can also store the value of function in the variable
+
+let s=function add1(){
+    console.log("hello");
+}
+s();
+
+// there is a typeof() to know the type of variable
+console.log(typeof(a));
+console.log(typeof(b));
+console.log(typeof(c));
+console.log(typeof(d));
+console.log(typeof(e));
+console.log(typeof(l));
+
+console.log(typeof(weather));// as weather=null of it should be of type null but it is object
+// so this the the legacy bug
+
+console.log(typeof(array));// object -> it is not bug
+console.log(typeof(user));// object
+console.log(typeof(s));// function -> it is internally object
+
+//note-> NON PRIMITIVE DATATYPE is typeof -> object
+// note-> primitive datatype is immutable-> once created never changed only refrenced is changed
+let str="bhupesh";
+console.log(str);
+str="khatri";
+console.log(str);
+// it is not chnage as the str which refer to the bhupesh not refer to khatri
+// but how to prove this
+let z="bkk";
+console.log(z);
+z[0]="s";// it rejects the change
+console.log(z);// print bkk only 
+z="skk";
+console.log(z)
+
+// NON PRIMITIVE DATATYPE is mutable-> can change
+let x=["a",'b',20,34.5];
+x[0]=0;
+console.log(x);
+
+let obj={
+    name:"bkk",
+    age:25
+}
+console.log(obj.age);
+obj.age=26;
+console.log(obj);
+
+// note -> PRIMITIVE is using copy by value
+let x1=10;
+let y1=x1;
+y1=20;// new memory is alloted to 20 and refernce to y1
+console.log(x1,y1);
+
+// note-> NON PRIMITIVE DATATYPE is using pass by refrence
+
+let obj1={
+    name:"bkk",
+    age:25
+}
+let obj2=obj1;
+obj2.name="skk";
+console.log(obj1);// here the obj1 and obj2 refer to the same object
