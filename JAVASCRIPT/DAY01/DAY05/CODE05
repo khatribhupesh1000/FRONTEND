@@ -1,1 +1,62 @@
+// number
+let a=10;
+let b=345.6821;
+console.log(b.toFixed(1));// it will pick the digit 1 after the decimal(approx)
+
+// but we get output
+let c=b.toFixed(1);
+console.log(c);
+console.log(typeof(c));// it is a string
+console.log(b);// original value has not changed
+console.log(typeof(b));// it is number
+
+// 
+console.log(b.toPrecision(6));// number of numbers we want and return string with approximate value
+//
+console.log(b.toString());
+
+// objects by new keyword
+
+let d=new Number(20);
+let e=new Number(20);
+console.log(d==e);// false because d and e are objects having different memeory location
+
+// note -> in primitive datatype the data is copied
+//          and in non primitive datatype refrence is copied
+
+console.log(Boolean(0));// false because Boolean return false at 0,null,undefined,""(empty string)
+// but when object is craeted with 0 and then convert into boolean then empty object or 0 with object as it check on the basis of reference which
+// is present in the heap whether it is empty
+// so boolean check only the reference
+console.log(Boolean(new Number(0)));
+
+// Math
+
+console.log(Math.abs(-4));
+console.log(Math.PI);
+console.log(Math.LN10);
+console.log(Math.LN2);
+console.log(Math.ceil(2.5));
+console.log(Math.floor(2.5));
+
+// Math.random()-> generate the random value range between [0,1)
+console.log(Math.random());
+// but if i want 0 to 9 with integer value
+console.log(Math.floor(Math.random()*10));
+// but if i want 1 to 10 with integer value
+console.log(Math.ceil(Math.random()*10));
+
+// if we want between 15 to 25
+console.log(Math.floor(Math.random()*11)+15);// 11 is number of numbers between 15 to 25
+// console.log(Math.floor(Math.random()*(max-min+1))+min);
+
+// otp generation of 4 digit between 1000- 9999
+console.log(Math.floor(Math.random()*(9999-1000+1))+1000);
+// but this method of generating the otp is not good but why?
+// we use crypto library for genearting the random variable
+
+// as random variable use the seed(current time on device) to take as input
+// with random code(present with everyone) to generate the output
+// that is why it is easy to guess the otp by hacker
+// that is why for otp generation the random() function is not used
 
