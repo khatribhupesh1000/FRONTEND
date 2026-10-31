@@ -1,1 +1,99 @@
+// operators
+//1.ARITHMATIC OPERATOR-> *,%,/,+,-
+//2.ASSIGNMENT OPERATOR->=,+=,-=,/=,*=,%=
+//3.COMPARISON OPERATOR-> >=,<=,==,!=
 
+// DIFFERENCE BETWEEN == AND ===
+// == check the elements are same without checking the type of elements
+//          if string is compared with number then string is convert into number
+
+let a="10";
+let b=10;
+console.log(a==b);
+// but what will happen when === -> first check type of elements
+//                               -> second check the elements are equal
+console.log(a===b);
+
+// what will happen
+let c="123ab";
+let d=Number(c);
+console.log(d);// NaN-> not a number
+
+console.log(0/0);// NaN
+
+console.log(typeof(d));// type of NaN-> number
+
+// number to string
+let e=10;
+let f=String(e);
+console.log(typeof(f));
+
+// boolean-> number
+let g=true;
+let h=Number(g);
+console.log(typeof(h));
+
+// convertion of null -> 0 and undefined ->NaN
+console.log(Number(null));
+console.log(Number(undefined));
+
+//boolean
+console.log(Boolean(-10));
+console.log(Boolean(10));
+console.log(Boolean(0));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));
+
+// computer science challenge
+
+let x=0.1;
+let y=0.2;
+let z=x+y;
+console.log(z==0.3);// false but why?
+console.log(z);// 0.30000000000000004
+
+//---------------------------rule ------------------------------------------
+
+//1-> null is loosely equal to undefined only
+console.log(null==undefined);// true
+console.log(null===undefined);// false because typeof(null)-> object and typeof(undefined)->undefined
+
+console.log(null==0);
+console.log(null=="");
+console.log(null==false);
+console.log(null==true);
+
+// but when >,<.>=,<=
+//      then null-> number
+console.log(null>0);
+console.log(null<=0);
+console.log(null<0);
+console.log(null>=0);
+
+//      undefined-> NaN
+console.log(null>=undefined);
+console.log(undefined>=0);
+
+// 2-> when ever we try to comare one primitive datatype to another/ number
+//       then it will be first converted into number then compare
+console.log(10=="10");// true
+console.log(null>="");// true
+
+// 3-> NaN comaprison with itself
+console.log(NaN==NaN);// false
+console.log(NaN===NaN);// false
+
+//     loop 
+
+for(let i=0;i<10;i++){// for(initialization;condition;updation)
+    console.log(i);
+}
+
+// && operation
+let k="mohit";
+let l="rohit";
+let m=k && l;
+console.log(m);// it gives rohit as mohit is true and it give the second left condition 
+let n=k || l;
+console.log(n);// as it gives the first operation only
