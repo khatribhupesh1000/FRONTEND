@@ -1,1 +1,202 @@
+//----------------STRING--------------------//
+const str1="bkk";
+const str2='bkk';
+const day=18;
+const str3=`Strink is coming one day 
+${day}`;// we can use this like this that is why it is modern way of writing string
+console.log(str1,str2,str3);
 
+// if we want the length of string-> as length is the property of string so we can use it like this
+console.log(str3.length);
+
+// toUpperCase() and toLowerCase()-> in these a new string is returned and the original string is not changed
+console.log(str3.toUpperCase());
+console.log(str3.toLowerCase());
+
+// to find the particular index of the string we can use indexOf() and lastIndexOf() method
+console.log(str3.indexOf('Strink'));// it will return the index of first character of the string
+console.log(str3.lastIndexOf('Strink'));// it will return the index of first character of the string from last
+
+// to find the particular character at particular index we can use charAt() method
+console.log(str3.charAt(0));// it will return the character at 0th index
+
+// to find the particular character at particular index we can use [] operator
+console.log(str3[0]);// it will return the character at 0th index
+
+// to find the substring from a string we can use substring() method
+console.log(str3.substring(0,6));// it will return the substring from 0 to 6-1=5 index
+
+// to find the substring from a string we can use slice() method
+console.log(str3.slice(0,6));// it will return the substring from 0 to 6-1=5 index
+
+// to find the substring from a string we can use substr() method
+console.log(str3.substr(0,6));// it will return the substring from 0 to 6-1=5 index
+
+// to replace the substring from a string we can use replace() method
+console.log(str3.replace('Strink','String'));// it will return the string with replaced substring
+
+// to check whether the string starts with a particular substring or not we can use startsWith() method
+console.log(str3.startsWith('Strink'));// it will return true if the string starts with the substring else false
+
+// to check whether the string ends with a particular substring or not we can use endsWith() method
+console.log(str3.endsWith('day'));// it will return true if the string ends with the substring else false
+
+// to check whether the string includes a particular substring or not we can use includes() method
+console.log(str3.includes('one'));// it will return true if the string includes the substring else false
+
+// to trim the string we can use trim() method
+const str4='   bkk   ';
+console.log(str4.trim());// it will return the string without leading and trailing spaces
+
+// to split the string we can use split() method
+const str5='bkk is a good place';
+console.log(str5.split(' '));// it will return an array of substrings split by the space
+
+// to get the character code of a particular character we can use charCodeAt() method
+console.log(str5.charCodeAt(0));// it will return the character code of the character at 0th index
+
+// to get the string from character code we can use fromCharCode() method
+console.log(String.fromCharCode(98,107,107));// it will return the string from the character codes 
+
+
+// ------------------DATE--------------------//
+
+const date1=new Date();
+console.log(date1);// it will return the current date and time
+
+// to get the date in a particular format we can use toDateString() method
+console.log(date1.toDateString());// it will return the date in a particular format
+
+// to get the time in a particular format we can use toTimeString() method
+console.log(date1.toTimeString());// it will return the time in a particular format
+
+// to get the date and time in a particular format we can use toLocaleString() method
+console.log(date1.toLocaleString());// it will return the date and time in a particular format
+
+// to get the date in a particular format we can use toLocaleDateString() method
+console.log(date1.toLocaleDateString());// it will return the date in a particular format
+
+// to get the time in a particular format we can use toLocaleTimeString() method
+console.log(date1.toLocaleTimeString());// it will return the time in a particular format
+
+// to get the date in a particular format we can use toISOString() method
+console.log(date1.toISOString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toUTCString() method
+console.log(date1.toUTCString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toJSON() method
+console.log(date1.toJSON());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toString() method
+console.log(date1.toString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toTimeString() method
+console.log(date1.toTimeString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toDateString() method
+console.log(date1.toDateString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toLocaleString() method
+console.log(date1.toLocaleString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toLocaleDateString() method
+console.log(date1.toLocaleDateString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toLocaleTimeString() method
+console.log(date1.toLocaleTimeString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toISOString() method
+console.log(date1.toISOString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toUTCString() method
+console.log(date1.toUTCString());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toJSON() method
+console.log(date1.toJSON());// it will return the date in a particular format
+
+// to get the date in a particular format we can use toString() method
+console.log(date1.toString());// it will return the date in a particular format 
+
+// INCONSISTENCY WITH DATE OBJECTS
+// when we create a date object with new Date() it will return the current date and time in the local timezone
+// but when we create a date object with new Date('2024-06-18') it will return the date in the UTC timezone
+// so we have to be careful while creating date objects with different formats
+// 
+// month is 0 based index so jan=0,feb=1,mar=2,apr=3,may=4,jun=5,jul=6,aug=7,sep=8,oct=9,nov=10,dec=11
+const date2=new Date(2024,5,18);// it will return the date in the local timezone
+console.log(date2);
+
+// to get the year we can use getFullYear() method
+console.log(date2.getFullYear());// it will return the year
+
+// to get the month we can use getMonth() method
+console.log(date2.getMonth());// it will return the month
+
+// to get the date we can use getDate() method
+console.log(date2.getDate());// it will return the date
+
+// to get the day we can use getDay() method
+console.log(date2.getDay());// it will return the day
+
+// to get the hours we can use getHours() method
+console.log(date2.getHours());// it will return the hours
+
+// to get the minutes we can use getMinutes() method
+console.log(date2.getMinutes());// it will return the minutes
+
+// to get the seconds we can use getSeconds() method
+console.log(date2.getSeconds());// it will return the seconds
+
+// to get the milliseconds we can use getMilliseconds() method
+console.log(date2.getMilliseconds());// it will return the milliseconds
+
+// to get the time in milliseconds we can use getTime() method
+console.log(date2.getTime());// it will return the time in milliseconds
+
+// to get the timezone offset we can use getTimezoneOffset() method
+console.log(date2.getTimezoneOffset());// it will return the timezone offset in minutes
+
+// to set the year we can use setFullYear() method
+date2.setFullYear(2025);// it will set the year
+console.log(date2);
+
+// to set the month we can use setMonth() method
+date2.setMonth(6);// it will set the month
+console.log(date2);
+
+// to set the date we can use setDate() method
+date2.setDate(19);// it will set the date
+console.log(date2);
+
+// to set the hours we can use setHours() method
+date2.setHours(10);// it will set the hours
+console.log(date2);
+
+// to set the minutes we can use setMinutes() method
+date2.setMinutes(30);// it will set the minutes
+console.log(date2);
+
+// to set the seconds we can use setSeconds() method
+date2.setSeconds(45);// it will set the seconds
+console.log(date2);
+
+// to set the milliseconds we can use setMilliseconds() method
+date2.setMilliseconds(500);// it will set the milliseconds
+console.log(date2);
+
+// to set the time in milliseconds we can use setTime() method
+date2.setTime(1687104000000);// it will set the time in milliseconds
+console.log(date2);
+
+
+const now=Date.now();// it will return the current time in milliseconds
+console.log(now);
+
+const dates9=new Date(1793509681504);// it will return the date in the local timezone
+console.log(dates9);
+
+//1793509681504 -> timestamp in milliseconds
+
+const dates8=new Date(0);// it will return the date in the local timezone
+console.log(dates8);
