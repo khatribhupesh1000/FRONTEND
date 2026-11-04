@@ -1,1 +1,146 @@
+// objects
 
+const obj1={
+    name:"bkk",
+    age:20,
+    city:"delhi"    
+}
+console.log(obj1);// it will return the object with all properties
+
+// to get the value of a particular property we can use dot notation or bracket notation
+console.log(obj1.name);// it will return the value of the property name
+console.log(obj1["age"]);// it will return the value of the property age
+
+// to add a new property to the object we can use dot notation or bracket notation
+obj1.country="india";
+console.log(obj1);// it will return the object with all properties including the new property country
+
+// to delete a property from the object we can use delete operator
+delete obj1.city;
+console.log(obj1);// it will return the object with all properties except the deleted property city
+
+// to check whether a particular property is present in the object or not we can use in operator
+console.log("name" in obj1);// it will return true if the property name is present in the object otherwise false
+console.log("city" in obj1);// it will return false because city property is deleted from the object
+
+// to get the keys of the object we can use Object.keys() method
+console.log(Object.keys(obj1));// it will return an array of keys of the object
+
+// to get the values of the object we can use Object.values() method
+console.log(Object.values(obj1));// it will return an array of values of the object
+
+// to get the entries of the object we can use Object.entries() method
+console.log(Object.entries(obj1));// it will return an array of arrays with key value pairs of the object
+
+const obj2={
+    name:"bkk",
+    age:20,
+    city:"delhi",
+    "home_address":"xyz"   
+}
+console.log(obj2);// it will return the object with all properties
+
+// to get the value of a particular property we can use dot notation or bracket notation
+console.log(obj2.name);// it will return the value of the property name
+console.log(obj2["home_address"]);// it will return the value of the property home_address
+
+// to add a new property to the object we can use dot notation or bracket notation
+obj2.country="india";
+console.log(obj2);// it will return the object with all properties including the new property country
+
+// to delete a property from the object we can use delete operator
+delete obj2.city;
+console.log(obj2);// it will return the object with all properties except the deleted property city
+
+// to check whether a particular property is present in the object or not we can use in operator
+console.log("name" in obj2);// it will return true if the property name is present in the object otherwise false
+console.log("city" in obj2);// it will return false because city property is deleted from the object
+
+// to get the keys of the object we can use Object.keys() method
+console.log(Object.keys(obj2));// it will return an array of keys of the object
+
+// to get the values of the object we can use Object.values() method
+console.log(Object.values(obj2));// it will return an array of values of the object
+
+// to get the entries of the object we can use Object.entries() method
+console.log(Object.entries(obj2));// it will return an array of arrays with key value pairs of the object
+
+for(let keys in obj2){
+    console.log(keys,obj2[keys]);// it will return the key and value of the object);
+}
+
+const obj3={
+    name:"skk",
+    age:60,
+    city:"hoshiarpur",
+    occupation:"shop",
+    greetings : function(){
+        console.log(`hello ${this.name}`);// it will return the value of the property greetings which is a function and it will return hello
+        return 8;
+    }
+}
+// console.log(`strike is coming here ${obj3.name}`);// it will return the value of the property greetings which is a function and it will return hello
+// as this is a function so we have to call the function to get the value of the property greetings which is a function and it will return hello
+//console.log(`strike is coming here ${this.name}`);// it will return the value of the property greetings which is a function and it will return hello
+
+
+const x=obj3.greetings();// it will return the value of the property greetings which is a function and it will return hello
+console.log(x);// it will return the value of the property greetings which is a function and it will return hello
+// const name=obj3.name; -> but this is not a good way to get the value of the property name because if we want to get the value of the property name then we have to write obj3.name every time we want to get the value of the property name.
+//  so we can use destructuring assignment to get the value of the property name.
+const{name,city,age,occupation}=obj3;
+console.log(name,city,age,occupation);// it will return the value of the properties name, city, age and occupation
+
+// in array also there is destructuring assignment but in array we have to use the index of the array to get the value of the element of the array.
+// const arr=[1,2,3,4,5];
+// const[a,b,c,d,e]=arr;
+// console.log(a,b,c,d,e);// it will return the value of the elements of the array
+
+for(let [keys,values] of Object.entries(obj3)){
+    console.log(keys,values);// it will return the key and value of the object);
+}
+
+
+// ---------------INDEPENDENT OBJECTS-----------------
+const obj4={...obj3};// it will return the object with all properties of obj3
+obj4.name="bkk";
+console.log(obj4);// it will return the object with all properties of obj3
+console.log(obj3);// it will return the object with all properties of obj3
+
+// BUT THIS WILL NOT WORK IF THE OBJECT HAS NESTED OBJECTS BECAUSE IT WILL COPY THE REFERENCE OF THE NESTED OBJECTS INSTEAD OF COPYING THE VALUE OF THE NESTED OBJECTS. SO IF WE CHANGE THE VALUE OF THE NESTED OBJECTS IN obj4 THEN IT WILL ALSO CHANGE THE VALUE OF THE NESTED OBJECTS IN obj3 BECAUSE THEY ARE POINTING TO THE SAME REFERENCE.
+const obj5={
+    name:"bkk",
+    age:20,
+    city:"delhi",
+    address:{
+        street:"xyz",
+        city:"abc"
+    }
+}
+const obj6={...obj5};// it will return the object with all properties of obj5
+obj6.address.street="pqr";
+console.log(obj6);// it will return the object with all properties of obj5
+console.log(obj5);// it will return the object with all properties of obj5 but the value of the property address.street will also change because they are pointing to the same reference.
+// 
+// this is a shallow copy of the object because it only copies the first level of the object and not the nested objects. so if we want to make a deep copy of the object then we can use JSON.parse() and JSON.stringify() methods.
+const obj7=JSON.parse(JSON.stringify(obj5));// it will return the object with all properties of obj5
+obj7.address.street="lmn";
+console.log(obj7);// it will return the object with all properties of obj5
+console.log(obj5);// it will return the object with all properties of obj5 but the value of the property address.street will not change because they are not pointing to the same reference.
+
+// or we can use structuredClone() method to make a deep copy of the object.
+const obj8=structuredClone(obj5);// it will return the object with all properties of obj5
+obj8.address.street="stu";
+console.log(obj8);// it will return the object with all properties of obj5
+console.log(obj5);// it will return the object with all properties of obj5 but the value of the property address.street will not change because they are not pointing to the same reference.
+
+// if we want to acces the symbol
+const sym1=Symbol("hi");
+const obj9={
+    name:"bkk",
+    age:20,
+    city:"delhi",
+    [sym1]:"hello"
+}
+console.log(obj9);// it will return the object with all properties of obj9 but the value of the property sym1 will not be visible because it is a symbol.
+console.log(obj9[sym1]);// it will return the value of the property sym1 which is hello
