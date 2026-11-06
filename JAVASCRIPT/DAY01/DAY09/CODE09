@@ -1,1 +1,150 @@
+// functions
+function myFunction(){
+    console.log("hello world");
+}
+myFunction();
+
+const a=function add(num1,num2){
+    return num1+num2;
+}
+console.log(a(10,20));// it will return the sum of num1 and num2
+
+function add2(num1,num2,nums3=0,nums4=0){
+    const sum= num1+num2+nums3+nums4;
+    console.log(sum);// it will return the sum of num1,num2,nums3 and nums4
+}
+add2(10,20);// it will return the sum of num1 and num2
+add2(10,20,30);// it will return the sum of num1,num2 and nums3
+add2(10,20,30,40);// it will return the sum of num1,num2,nums3 and nums4
+
+// to return a value from a function we can use return statement
+function add3(num1,num2){
+    return num1+num2;
+}
+const result=add3(10,20);
+console.log(result);// it will return the sum of num1 and num2
+
+// ------------USE OF REST OPERATOR IN FUNCTION----------------
+// it allows us to pass a variable number of arguments to a function and it will be stored in an array
+
+function addNumber(...nums){
+    let sum=0;
+    for(let n of nums){
+        sum+=n;
+    }
+    return sum;
+}
+addNumber(1,2,3,4,5);// it will return the sum of all numbers passed as arguments
+
+// ------------rest and destructuring assignment----------------
+const obj4={
+    name:"skk",
+    age:60,
+    city:"hoshiarpur",
+    occupation:"shop",
+    greetings : function(){
+        console.log(`hello ${this.name}`);// it will return the value of the property greetings which is a function and it will return hello
+        return 8;
+    }
+}
+const{name,city,...rest}=obj4;
+console.log(name,city,rest);// it will return the value of the properties name and city and rest will be an object with all other properties of obj4 except name and city
+
+// another example of rest and destructuring assignment in array
+const array=[1,2,3,4,5];
+const[x,y,z,...rest_num]=array;
+console.log(x,y,z);// it will return the value of the elements of the array at index 0,2 and 4
+console.log(...rest_num);// it will return the value of the elements of the array at index 1 and 3
+
+
+// note-> spread operator is used to open the array or object and 
+// rest operator is used to collect the remaining elements of the array or object
+//  into a new array or object.
+
+// one more method to craete the function is arrow function
+
+const sub=(a1,a2)=>{
+    if(a1>a2) return a1-a2;
+    else return a2-a1;  
+}
+console.log(sub(10,20));// it will return the difference of a1 and a2
+
+const square=(a)=> {
+return a*a;
+}
+console.log(square(5));// it will return the square of a
+
+const square2=a=>a*a;
+console.log(square2(6));// it will return the square of a
+
+
+// ---------------TYPES---------------
+//1
+// const greeting=()=>{
+//     let user={
+//         name:"bkk",
+//         age:25
+//     }
+//     return user;
+// }
+
+//2
+// const greeting=()=>{
+//     return{
+//         name:"bkk",
+//         age:25
+//     }
+    
+// }
+
+//3
+const greeting=()=>({name:"bkk",age:25}) // it will return an object with properties name and age
+console.log(greeting());// it will return an object with properties name and age
+
+
+// ---------------IIFE(Immediately Invoked Function Expression)---------------
+(function(){
+    console.log("hello world");
+})();// it will return hello world
+
+// WHERE TO USE IIFE-> it is used to create a private scope for the variables and 
+// functions so that they are not accessible from outside the function. 
+// It is also used to avoid polluting the global scope with variables and functions.
+// It is also used to create a module pattern in JavaScript.
+
+// CALLBACK FUNCTION-> it is a function that is passed as an argument to another function and
+// it is executed after the completion of the function in which it is passed as an argument.
+function greet(){
+    console.log("hello world");//
+}
+function meet(callback){
+    console.log("how are you?");// main function will execute first and then callback function will execute after the completion of main function
+    callback();// it will return the value of the property greetings which is a function and it will return hello
+    console.log("goodbye");// it will return goodbye
+}
+meet(greet);// it will return how are you? and hello world
+    
+// call back function is used 
+// 1. to handle asynchronous operations like setTimeout, setInterval, fetch, etc.
+
+let arr=[5,4,6,7,1];
+arr.sort((a,b)=>a-b);// it will sort the array in ascending order using callback function
+console.log(arr);
+
+// blinkit
+
+function blinkitOrderPlaced(){
+    console.log("we have started packing your order");
+}
+function zomatoOrderPlaced(){
+    console.log("we have started preparing your food");
+}
+function payment(amount,callback){
+    console.log(`${amount} payment has initialized`);
+    console.log("payment has received");
+    callback();
+}    
+payment(500,blinkitOrderPlaced);
+    
+
 
