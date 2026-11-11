@@ -1,0 +1,122 @@
+// for-each, filter, reducer, map ,set
+
+const arr=[10,20,30,5,100];
+let sum=0;
+
+arr.forEach((number,)=>{
+    sum+=number
+})
+console.log(sum);
+
+// arr is object so .forEach is method which uses for each function
+
+// similar filter comes into play -> it also take the call back function
+let x=[];
+let y=[];
+arr.filter((a)=>{
+    if(a>20) x.push(a);
+    else y.push(a);
+})
+console.log(x,y);
+
+// but filter also return the new array and in filter fuction we have to return something if not return then it will considered is false
+
+const newArray=arr.filter((a)=>{
+    console.log(a);
+})
+console.log(newArray);
+
+
+const newArray2=arr.filter((a)=>{
+    console.log(a);
+    return a;
+})
+console.log(newArray2);
+
+// custom filter method
+
+let arr2=[100,78,23,45,12];
+arr2.filtering=function(compare){
+    const answer=[];
+    for(let num of this){
+        if(compare(num)){
+            answer.push(num);
+        }
+    }
+    return answer;
+}
+const r=arr2.filtering((a=>a>20));
+console.log(r);
+// to make it generalize use this
+
+Array.prototype.sumFiltering=function(number){
+   let sum=0;
+   let difference=0;
+   for(let num of this){
+    if(number>0){
+    sum+=num;
+    }
+    else{
+        difference-=num;
+    }
+   }
+   return number>0?sum:difference;
+}
+
+const newSum=arr2.sumFiltering(2);
+console.log(newSum);
+
+const sum1=arr.sumFiltering(0);
+console.log(sum1);
+
+// but this is not recommende because it change the original property of array
+
+
+//     MAP      
+const newArr2=arr2.map((a)=>a*2);
+console.log(newArr2);
+
+// custom map
+//let arr2=[100,78,23,45,12];
+arr2.maping=function(newElement){
+    let newArray4=[];
+    for(let num of this){
+        newArray4.push(num*num);
+    }
+    return newArray4;
+}
+const neArr=arr2.maping(2);
+console.log(neArr);
+
+
+// reducer-> to ittertae in array and give the final value
+
+const value=arr2.reduce((accumulator,currentvalue)=>{
+    return accumulator+currentvalue;
+},0)
+
+console.log(value);
+
+// -----------------DATA STRUCTURE----------
+//1. SET()-> having only unique values
+
+const a=[10,20,30,10,20,30];
+console.log(a);
+
+const s1=new Set(a);
+console.log(s1);
+s1.add(40);
+console.log(s1);
+
+console.log(s1.has(10));
+
+//2-> map
+
+const m1=new Map([
+    ["rohit",20],
+    [true,"false"],
+    [20,"bkk"]
+]);
+console.log(m1);
+m1.set({name:'bkk',age:20},"false");
+console.log(m1);
